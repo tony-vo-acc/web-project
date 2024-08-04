@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500&display=swap');
+
+:root {
+    --background: rgb(18,18,18);
+    --active: rgb(30,215,96);
+    --margin: 10px; /* Ensure this margin matches the body margin divided by 2 */
+    --inactive: rgb(83,83,83);
+    --grade-height: 45vh;
+}
+
+html, body {
+    background-color: var(--background);
+    font-family: 'DM Mono', monospace;
+    color: white;
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Arrange children vertically */
+    margin: var(--margin);
+}
+
+h3 {
+    font-size: 22px;
+    margin: 0;
+    text-align: center;
+    margin-left: -30px;
+    margin-top: -25px;
+}
+
+h3, i {
+    color: var(--active);
+}
+
+i {
+    margin-top: -20px;
+    font-size: 18px;
+}
+
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    outline: solid 1px var(--inactive);
+    width: 21em;
+    height: calc(100vh - 2 * var(--margin)); /* Set height to 100vh minus the total margin */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    padding: 15px;
+    position: fixed; /* Fix the sidebar to the left */
+    transition: 0.3s ease all;
+}
+
+#sidebar::before {
+    position: relative;
+    color: var(--inactive);
+    left: -127px;
+    top: -27px;
+    background-color: var(--background);
+    text-align: center;
+    padding: 0px 2px;
+    content: "sidebar";
+    transition: 0.3s ease all;
+}
+
+#sidebar:hover, table:hover, #assignments:hover {
+    outline-color: var(--active); /* Change border color on hover */
+}
+
+#sidebar:hover::before, #main-content:hover::before, #assignments:hover::before {
+    color: var(--active); /* Change text color on hover */
+}
+
+ul {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0;
+    padding-top: 25px;
+    margin: 0;
+    width: 100%; /* Ensure the list items take the full width */
+    transition: 0.3s ease all;
+}
+
+ul li {
+    text-align: center; /* Center align the list item text */
+    width: 100%; /* Make sure the list item takes full width of the sidebar */
+    height: 2em;
+    border-radius: 3px;
+    display: flex; /* Use flex to center the content */
+    align-items: center; /* Vertically center the content */
+    justify-content: center; /* Horizontally center the content */
+    cursor: pointer;
+    transition: 0.3s ease all;
+}
+
+ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+ul li:hover {
+    background-color: rgb(255, 255, 255, .05);
+}
+
+#main-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-left: calc(21em + var(--margin)); /* Add space for the sidebar and margin */
+    width: calc(100% - 20.5em - 2 * var(--margin)); /* Remaining width of the viewport */
+    height: calc(var(--grade-height) - var(--margin)*2); /* Adjust height to match main content height minus margin-top */
+    padding: 0px; /* Unchanged padding */
+    box-sizing: border-box; /* Include padding and border */
+    background-color: rgb(255, 255, 255, .05);
+    transition: 0.3s ease all;
+}
+
+#main-content::before {
+    position: absolute;
+    color: var(--inactive);
+    background-color: var(--background);
+    text-align: center;
+    top: -13px;
+    left: 5px;
+    padding: 0px 2px;
+    content: "grades";
+    z-index: 99;
+    transition: 0.3s ease all;
+}
+
+#assignments {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-left: calc(21em + var(--margin)); /* Add space for the sidebar and margin */
+    width: calc(100% - 20.5em - 2 * var(--margin)); /* Remaining width */
+    height: calc(100vh - var(--grade-height) - var(--margin)); /* Adjust height to match main content height minus margin-top */
+    padding: 0px;
+    box-sizing: border-box; /* Include padding and border */
+    outline: 1px solid var(--inactive); /* Border around container */
+    background-color: var(--background); /* Consistent background */
+    transition: 0.3s ease all;
+    margin-top: 10px; /* Space between main content and assignments */
+}
+
+#assignments::before {
+    position: absolute;
+    color: var(--inactive);
+    background-color: var(--background);
+    text-align: center;
+    top: -9px;
+    left: 5px;
+    padding: 0px 2px;
+    content: "assignments";
+    z-index: 99;
+    line-height: 1em;   
+    transition: 0.3s ease all;
+}
+
+table {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    border-collapse: collapse;
+    text-align: center;
+    outline: 1px solid var(--inactive); /* Set the table border to 1px */
+    margin: 0;
+    padding: 0;
+    transition: 0.3s ease all;
+}
+
+th, td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid var(--inactive);
+}
+
+th {
+    padding: 5px;
+    height: .75em;
+}
+
+th {
+    background-color: var(--background);
+}
+
+td {
+    background-color: var(--background);
+}
+
+tr:hover {
+    background-color: rgba(30, 215, 96, 0.1); /* Light background color on hover */
+}
+
+table th:first-child, table td:first-child {
+    border-left: none; /* Remove the left border from the first column */
+}
+
+table th:last-child, table td:last-child {
+    border-right: none; /* Remove the right border from the last column */
+}
+
+table tr:first-child th {
+    border-top: none; /* Remove the top border from the first row */
+}
+
+table tr:last-child td {
+    border-bottom: none; /* Remove the bottom border from the last row */
+}

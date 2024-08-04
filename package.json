@@ -1,0 +1,21 @@
+{
+  "name": "hac_helper",
+  "version": "1.0.0",
+  "description": "uses requests to get data from home access center",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "start-server": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "node": "^18.20.4",
+    "nodemon": "^3.1.4",
+    "path": "^0.12.7",
+    "superagent": "^9.0.2"
+  }
+}

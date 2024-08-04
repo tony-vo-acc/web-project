@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/login.css">
+    <script src="/login.js" defer></script>
+</head>
+<body>
+    <div id="container">
+        <form id="loginForm">
+            <h1><pre>
+    __  __                          ___                               ______           __           
+   / / / /___  ____ ___  ___       /   | _____________  __________   / ____/__  ____  / /____  _____
+  / /_/ / __ \/ __ `__ \/ _ \     / /| |/ ___/ ___/ _ \/ ___/ ___/  / /   / _ \/ __ \/ __/ _ \/ ___/
+ / __  / /_/ / / / / / /  __/    / ___ / /__/ /__/  __(__  |__  )  / /___/  __/ / / / /_/  __/ /    
+                /_/ /_/\____/_/ /_/ /_/\___/    /_/  |_\___/\___/\___/____/____/   \____/\___/_/ /_/\__/\___/_/                     
+                </pre></h1>
+            <div class="input_container">
+                <input id="uname" type="text" required>
+                <label for="uname">Username</label>
+            </div>
+            <div class="input_container">
+                <input id="pass" type="password" required>
+                <label for="pass">Password</label>
+            </div>
+            <button type="button" onclick="sendcred()">Login</button>
+        </form>
+    </div>
+</body>
+</html>
