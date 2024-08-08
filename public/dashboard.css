@@ -5,7 +5,7 @@
     --active: rgb(30,215,96);
     --margin: 10px; /* Ensure this margin matches the body margin divided by 2 */
     --inactive: rgb(83,83,83);
-    --grade-height: 45vh;
+    --grade-height: 35vh;
 }
 
 html, body {
@@ -109,7 +109,6 @@ ul li:hover {
     height: calc(var(--grade-height) - var(--margin)*2); /* Adjust height to match main content height minus margin-top */
     padding: 0px; /* Unchanged padding */
     box-sizing: border-box; /* Include padding and border */
-    background-color: rgb(255, 255, 255, .05);
     transition: 0.3s ease all;
 }
 
@@ -137,7 +136,6 @@ ul li:hover {
     box-sizing: border-box; /* Include padding and border */
     outline: 1px solid var(--inactive); /* Border around container */
     background-color: var(--background); /* Consistent background */
-    transition: 0.3s ease all;
     margin-top: 10px; /* Space between main content and assignments */
 }
 
@@ -168,28 +166,21 @@ table {
 }
 
 th, td {
-    text-align: center;
-    padding: 10px;
-    border: 1px solid var(--inactive);
+    border: 1px solid var(--inactive); /* Base border color */
+    padding: 8px;
+    position: relative;
+    z-index: 1; /* Ensure proper layering */
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transition */
 }
 
 th {
+    font-weight: 500;
     padding: 5px;
+    font-size: 16px;
     height: .75em;
 }
 
-th {
-    background-color: var(--background);
-}
-
-td {
-    background-color: var(--background);
-}
-
-tr:hover {
-    background-color: rgba(30, 215, 96, 0.1); /* Light background color on hover */
-}
-
+/* Specific border removal */
 table th:first-child, table td:first-child {
     border-left: none; /* Remove the left border from the first column */
 }
@@ -204,4 +195,10 @@ table tr:first-child th {
 
 table tr:last-child td {
     border-bottom: none; /* Remove the bottom border from the last row */
+}
+
+/* Hover effect */
+tr:hover td {
+    background-color: rgba(30, 215, 96, 0.1); /* Light green background on hover */
+    border-top: 1px solid var(--active);
 }

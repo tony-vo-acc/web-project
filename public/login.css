@@ -72,7 +72,7 @@ label {
     transition: 0.3s ease all;
     text-align: center;
     width: auto;
-    padding: 0 5px; /* Add padding to accommodate the label size transition */
+    padding: 0 2px; /* Add padding to accommodate the label size transition */
 }
 
 input:focus + label, input:valid + label {
@@ -100,8 +100,15 @@ button {
 button:hover {
     transform: scale(1.025);
 }
-    
-input:-webkit-autofill,
-input:-webkit-autofill:focus {
-  transition: background-color 0s 600000s, color 0s 600000s !important;
+
+input {
+    color: white;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 60px var(--background) inset;
+    background-color: var(--background) !important;
+    background-clip: content-box !important;
+    -webkit-text-fill-color: white !important;
+    caret-color: white !important; /* Ensures the caret is visible */
 }
